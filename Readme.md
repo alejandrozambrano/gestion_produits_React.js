@@ -1,81 +1,42 @@
 
-# 🛍️ Projet – Gestion de Produits en Ligne (React + FastAPI)
+# 📦 Projet – Gestion de Produits (React + FastAPI)
 
-## 📌 Présentation
-Ce projet consiste à développer une application web de gestion de produits avec :
-- Un système d'authentification (login/logout)
-- Un panier d'achat
-- Une interface d'administration pour gérer les produits et les utilisateurs
+Bienvenue dans le dépôt de notre projet de gestion de produits avec interface web.
 
----
+## 🧩 Technologies utilisées
 
-## 👥 Répartition des tâches par collaborateur
-
-| Collaborateur       | Tâche                          | Description                                                                                  | Branche de travail        |
-|---------------------|--------------------------------|----------------------------------------------------------------------------------------------|---------------------------|
-| Alejandro Zambrano  | Frontend (React)               | Création des composants React, connexion API, affichage des produits                         | `feature/frontend`        |
-| Alejandro Zambrano  | Gestion du panier              | Interface utilisateur pour le panier, ajout/suppression de produits                          | `feature/panier`          |
-| Alejandro Zambrano  | UML & Documentation            | Diagrammes de classe, séquence, cas d'utilisation, structure du projet                       | `main` (documentation)    |
-| Yaakoub El Mouttaqui| Backend (FastAPI)              | API REST, endpoints `/produits`, `/panier`, `/login`, connexion à la base de données         | `feature/backend`         |
-| Yaakoub El Mouttaqui| Authentification & JWT         | Login/logout, génération et vérification des tokens JWT                                      | `feature/backend`         |
-| Yaakoub El Mouttaqui| Interface d'administration     | Ajout, modification, suppression des produits et gestion des utilisateurs                    | `feature/admin`           |
-
----
-
-## 🌿 Branches Git
-
-| Branche              | Description                           |
-|----------------------|---------------------------------------|
-| `main`               | Version stable du projet              |
-| `feature/frontend`   | Interface React (Alejandro)           |
-| `feature/backend`    | API FastAPI (Yaakoub El Mouttaqui)    |
-| `feature/panier`     | Gestion du panier (Alejandro)         |
-| `feature/admin`      | Interface admin (Yaakoub El Mouttaqui)|
-
----
-
-## 🚀 Procédure de travail Git recommandée
-
-### 🔁 Avant de commencer :
-```bash
-git checkout main
-git pull origin main
-```
-
-### 🌿 Créer une branche :
-```bash
-git checkout -b feature/nom-de-ta-tâche
-```
-
-### 🛠️ Travailler et pousser :
-```bash
-git add .
-git commit -m "Ajout de la fonctionnalité X"
-git push origin feature/nom-de-ta-tâche
-```
-
-### ✅ Pull Request :
-- Créer une Pull Request **vers `main`**
-- Attendre la validation avant de faire le merge
-
----
+- React.js (Frontend)
+- FastAPI (Backend)
+- SQLite (Base de données)
+- JWT (Authentification)
+- Git & GitHub (Collaboration)
 
 ## 📁 Structure du projet
 
 ```
 gestion_produits_React.js/
-├── frontend/          # React App
-├── backend/           # API FastAPI
-├── diagrammes/        # Diagrammes UML
-├── README.md
+├── frontend/       # Interface utilisateur en React
+├── backend/        # API REST en FastAPI
+├── diagrammes/     # Diagrammes UML (classe, séquence, cas d'utilisation)
+├── README.md       # Présentation générale
 └── .gitignore
 ```
 
+## 🚧 Collaboration
+
+Chaque fonctionnalité est développée dans une branche dédiée :
+- `feature/frontend`
+- `feature/backend`
+- `feature/panier`
+- `feature/admin`
+
+Les fichiers spécifiques sont documentés dans chaque sous-dossier.
+
+## 🧑‍💻 Contributeurs
+
+- Alejandro Zambrano
+- Yaakoub El Mouttaquii
+
 ---
 
-## 🔒 Bonnes pratiques
-
-- Ne jamais travailler directement sur `main`
-- Une branche par fonctionnalité
-- Des commits clairs
-- Des PR revues avant intégration
+📌 Ce fichier `README.md` est volontairement général pour éviter les conflits entre les branches.
