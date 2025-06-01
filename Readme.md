@@ -11,26 +11,26 @@ Ce projet consiste à développer une application web de gestion de produits ave
 
 ## 👥 Répartition des tâches par collaborateur
 
-| Collaborateur       | Tâche                          | Description                                                                                  | Branche de travail       |
+| Collaborateur       | Tâche                          | Description                                                                                  | Branche de travail        |
 |---------------------|--------------------------------|----------------------------------------------------------------------------------------------|---------------------------|
 | Alejandro Zambrano  | Frontend (React)               | Création des composants React, connexion API, affichage des produits                         | `feature/frontend`        |
 | Alejandro Zambrano  | Gestion du panier              | Interface utilisateur pour le panier, ajout/suppression de produits                          | `feature/panier`          |
 | Alejandro Zambrano  | UML & Documentation            | Diagrammes de classe, séquence, cas d'utilisation, structure du projet                       | `main` (documentation)    |
-| Collaborateur       | Backend (FastAPI)              | API REST, endpoints `/produits`, `/panier`, `/login`, connexion à la base de données         | `feature/backend`         |
-| Collaborateur       | Authentification & JWT         | Login/logout, génération et vérification des tokens JWT                                      | `feature/backend`         |
-| Collaborateur       | Interface d'administration     | Ajout, modification, suppression des produits et gestion des utilisateurs                    | `feature/admin`           |
+| Yaakoub El Mouttaqui| Backend (FastAPI)              | API REST, endpoints `/produits`, `/panier`, `/login`, connexion à la base de données         | `feature/backend`         |
+| Yaakoub El Mouttaqui| Authentification & JWT         | Login/logout, génération et vérification des tokens JWT                                      | `feature/backend`         |
+| Yaakoub El Mouttaqui| Interface d'administration     | Ajout, modification, suppression des produits et gestion des utilisateurs                    | `feature/admin`           |
 
 ---
 
 ## 🌿 Branches Git
 
-| Branche              | Description                          |
+| Branche              | Description                           |
 |----------------------|---------------------------------------|
 | `main`               | Version stable du projet              |
 | `feature/frontend`   | Interface React (Alejandro)           |
-| `feature/backend`    | API FastAPI (Collaborateur)           |
+| `feature/backend`    | API FastAPI (Yaakoub El Mouttaqui)    |
 | `feature/panier`     | Gestion du panier (Alejandro)         |
-| `feature/admin`      | Interface admin (Collaborateur)       |
+| `feature/admin`      | Interface admin (Yaakoub El Mouttaqui)|
 
 ---
 
