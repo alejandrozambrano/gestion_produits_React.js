@@ -1,77 +1,81 @@
 
-# 🖼️ Frontend – Interface utilisateur (React.js)
+# 🛍️ Projet – Gestion de Produits en Ligne (React + FastAPI)
 
-## 🎯 Objectif
-Développement de l’interface utilisateur pour la gestion de produits et de panier d’achat dans une application web e-commerce.
-
----
-
-## 📌 Technologies utilisées
-- React.js
-- React Router DOM
-- Axios (pour communication avec l’API FastAPI)
-- Bootstrap ou CSS personnalisé
-- Context API ou useState (pour état local)
+## 📌 Présentation
+Ce projet consiste à développer une application web de gestion de produits avec :
+- Un système d'authentification (login/logout)
+- Un panier d'achat
+- Une interface d'administration pour gérer les produits et les utilisateurs
 
 ---
 
-## 🛠️ Tâches à réaliser dans cette branche `feature/frontend`
+## 👥 Répartition des tâches par collaborateur
 
-| Composant / Page        | Description                                                                 |
-|-------------------------|-----------------------------------------------------------------------------|
-| `App.js`                | Configuration des routes de navigation                                      |
-| `Navbar.jsx`            | Barre de navigation avec lien vers Accueil, Produits, Panier, Connexion     |
-| `HomePage.jsx`          | Page d’accueil avec message d’introduction                                 |
-| `ProductList.jsx`       | Liste des produits récupérés depuis l’API (`/produits`)                    |
-| `ProductDetail.jsx`     | Affichage des détails d’un produit sélectionné                              |
-| `Panier.jsx`            | Affichage du panier avec option de modifier ou supprimer des articles       |
-| `Login.jsx`             | Formulaire de connexion (login utilisateur/admin)                           |
-| `Register.jsx`          | Formulaire d’inscription                                                    |
-| `AdminPanel.jsx`        | Interface conditionnelle pour administrateur (accessible selon le rôle)     |
+| Collaborateur       | Tâche                          | Description                                                                                  | Branche de travail        |
+|---------------------|--------------------------------|----------------------------------------------------------------------------------------------|---------------------------|
+| Alejandro Zambrano  | Frontend (React)               | Création des composants React, connexion API, affichage des produits                         | `feature/frontend`        |
+| Alejandro Zambrano  | Gestion du panier              | Interface utilisateur pour le panier, ajout/suppression de produits                          | `feature/panier`          |
+| Alejandro Zambrano  | UML & Documentation            | Diagrammes de classe, séquence, cas d'utilisation, structure du projet                       | `main` (documentation)    |
+| Yaakoub El Mouttaqui| Backend (FastAPI)              | API REST, endpoints `/produits`, `/panier`, `/login`, connexion à la base de données         | `feature/backend`         |
+| Yaakoub El Mouttaqui| Authentification & JWT         | Login/logout, génération et vérification des tokens JWT                                      | `feature/backend`         |
+| Yaakoub El Mouttaqui| Interface d'administration     | Ajout, modification, suppression des produits et gestion des utilisateurs                    | `feature/admin`           |
 
 ---
 
-## 🔁 Flux de données principal
-1. L’utilisateur se connecte via `Login.jsx` → récupère un token JWT.
-2. Les produits sont chargés avec Axios depuis `/produits` et affichés dans `ProductList.jsx`.
-3. L’utilisateur ajoute des produits à son panier (géré via état local ou global).
-4. Le panier est visible dans `Panier.jsx` avec possibilité de validation.
-5. Si l’utilisateur est admin, accès à `AdminPanel.jsx` pour gérer les produits.
+## 🌿 Branches Git
+
+| Branche              | Description                           |
+|----------------------|---------------------------------------|
+| `main`               | Version stable du projet              |
+| `feature/frontend`   | Interface React (Alejandro)           |
+| `feature/backend`    | API FastAPI (Yaakoub El Mouttaqui)    |
+| `feature/panier`     | Gestion du panier (Alejandro)         |
+| `feature/admin`      | Interface admin (Yaakoub El Mouttaqui)|
 
 ---
 
-## ✅ Bonnes pratiques
-- Utiliser des `useEffect()` pour les appels API
-- Centraliser les appels dans un fichier `api.js` (facultatif mais recommandé)
-- Stocker le token JWT dans `localStorage`
-- Cacher les routes réservées à l’admin si l’utilisateur est simple
-- Respecter une structure de composants claire (`components/`, `pages/`, `styles/`)
+## 🚀 Procédure de travail Git recommandée
 
----
-
-## 📂 Arborescence recommandée
-
-```
-frontend/
-├── src/
-│   ├── components/
-│   │   ├── Navbar.jsx
-│   │   └── ProductCard.jsx
-│   ├── pages/
-│   │   ├── HomePage.jsx
-│   │   ├── ProductList.jsx
-│   │   ├── ProductDetail.jsx
-│   │   ├── Panier.jsx
-│   │   ├── Login.jsx
-│   │   ├── Register.jsx
-│   │   └── AdminPanel.jsx
-│   ├── App.js
-│   └── index.js
-├── public/
-├── package.json
-└── README.md
+### 🔁 Avant de commencer :
+```bash
+git checkout main
+git pull origin main
 ```
 
+### 🌿 Créer une branche :
+```bash
+git checkout -b feature/nom-de-ta-tâche
+```
+
+### 🛠️ Travailler et pousser :
+```bash
+git add .
+git commit -m "Ajout de la fonctionnalité X"
+git push origin feature/nom-de-ta-tâche
+```
+
+### ✅ Pull Request :
+- Créer une Pull Request **vers `main`**
+- Attendre la validation avant de faire le merge
+
 ---
 
-Rédigé pour la branche : `feature/frontend`
+## 📁 Structure du projet
+
+```
+gestion_produits_React.js/
+├── frontend/          # React App
+├── backend/           # API FastAPI
+├── diagrammes/        # Diagrammes UML
+├── README.md
+└── .gitignore
+```
+
+---
+
+## 🔒 Bonnes pratiques
+
+- Ne jamais travailler directement sur `main`
+- Une branche par fonctionnalité
+- Des commits clairs
+- Des PR revues avant intégration
