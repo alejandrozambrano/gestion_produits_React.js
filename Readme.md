@@ -1,82 +1,85 @@
 
-# 🛍️ Projet – Gestion de Produits en Ligne (React + FastAPI)
+# 🧺 Panier – Gestion du panier d’achat
 
-## 📌 Présentation
-Ce projet consiste à développer une application web de gestion de produits avec :
-- Un système d'authentification (login/logout)
-- Un panier d'achat
-- Une interface d'administration pour gérer les produits et les utilisateurs
+## 🎯 Objectif
+Développement de la fonctionnalité "panier d'achat" pour l’utilisateur. Permettre d'ajouter, modifier, supprimer et valider des produits dans le panier.
 
 ---
 
-## 👥 Répartition des tâches par collaborateur
-
-| Collaborateur       | Tâche                          | Description                                                                                  | Branche de travail        |
-|---------------------|--------------------------------|----------------------------------------------------------------------------------------------|---------------------------|
-| Alejandro Zambrano  | Frontend (React)               | Création des composants React, connexion API, affichage des produits                         | `feature/frontend`        |
-| Alejandro Zambrano  | Gestion du panier              | Interface utilisateur pour le panier, ajout/suppression de produits                          | `feature/panier`          |
-| Alejandro Zambrano  | UML & Documentation            | Diagrammes de classe, séquence, cas d'utilisation, structure du projet                       | `main` (documentation)    |
-| Yaakoub El Mouttaqui| Backend (FastAPI)              | API REST, endpoints `/produits`, `/panier`, `/login`, connexion à la base de données         | `feature/backend`         |
-| Yaakoub El Mouttaqui| Authentification & JWT         | Login/logout, génération et vérification des tokens JWT                                      | `feature/backend`         |
-| Yaakoub El Mouttaqui| Interface d'administration     | Ajout, modification, suppression des produits et gestion des utilisateurs                    | `feature/admin`           |
+## 📌 Technologies utilisées
+- React.js pour l’interface utilisateur
+- Axios pour communiquer avec l’API backend
+- FastAPI pour les endpoints liés au panier
+- SQLite (ou PostgreSQL) pour stocker les lignes du panier
+- JWT pour authentifier les actions
 
 ---
 
-## 🌿 Branches Git
+## 🛠️ Tâches à réaliser dans cette branche `feature/panier`
 
-| Branche              | Description                           |
-|----------------------|---------------------------------------|
-| `main`               | Version stable du projet              |
-| `feature/frontend`   | Interface React (Alejandro)           |
-| `feature/backend`    | API FastAPI (Yaakoub El Mouttaqui)    |
-| `feature/panier`     | Gestion du panier (Alejandro)         |
-| `feature/admin`      | Interface admin (Yaakoub El Mouttaqui)|
-
----
-
-## 🚀 Procédure de travail Git recommandée
-
-### 🔁 Avant de commencer :
-```bash
-git checkout main
-git pull origin main
-```
-
-### 🌿 Créer une branche :
-```bash
-git checkout -b feature/nom-de-ta-tâche
-```
-
-### 🛠️ Travailler et pousser :
-```bash
-git add .
-git commit -m "Ajout de la fonctionnalité X"
-git push origin feature/nom-de-ta-tâche
-```
-
-### ✅ Pull Request :
-- Créer une Pull Request **vers `main`**
-- Attendre la validation avant de faire le merge
+| Élément                 | Description                                                                 |
+|-------------------------|-----------------------------------------------------------------------------|
+| `Panier.jsx`            | Affichage du panier avec tous les produits ajoutés                         |
+| `Ajouter au panier`     | Bouton depuis `ProductList.jsx` qui appelle l’API pour ajouter un article  |
+| `Modifier quantité`     | Interface pour augmenter / diminuer la quantité dans `Panier.jsx`          |
+| `Supprimer article`     | Option pour retirer un produit du panier                                   |
+| `Valider commande`      | Bouton pour finaliser l’achat et créer une commande                        |
+| `API /panier/...`       | Endpoints POST, PUT, DELETE, validation (FastAPI)                          |
 
 ---
 
-## 📁 Structure du projet
+## 🔁 Exemple de flux
+
+1. L’utilisateur clique sur “Ajouter au panier” → appel POST `/panier/ajouter`
+2. L’élément est visible dans `Panier.jsx` avec sa quantité et son prix total
+3. Il peut modifier ou supprimer chaque produit
+4. En cliquant sur “Valider le panier” → appel API POST `/panier/valider`
+5. Une commande est créée côté backend
+
+---
+
+## 🌿 Endpoints Backend associés
 
 ```
-gestion_produits_React.js/
-├── frontend/          # React App
-├── backend/           # API FastAPI
-├── diagrammes/        # Diagrammes UML
-├── README.md
-└── .gitignore
+POST   /panier/ajouter
+PUT    /panier/modifier/{id}
+DELETE /panier/supprimer/{id}
+POST   /panier/valider
+```
+
+Chaque endpoint nécessite un token JWT valide.
+
+---
+
+## 🧠 À noter
+
+- Le panier peut être stocké côté frontend temporairement (useState, Context) ou géré uniquement via l’API.
+- Lors de la validation du panier, une commande est créée avec un timestamp et les lignes de produits.
+
+---
+
+## 📂 Exemple d’arborescence
+
+```
+frontend/
+├── pages/
+│   └── Panier.jsx
+backend/
+├── routes/
+│   └── panier.py
 ```
 
 ---
 
-## 🔒 Bonnes pratiques
+## ✅ Bonnes pratiques
 
-- Ne jamais travailler directement sur `main`
-- Une branche par fonctionnalité
-- Des commits clairs
-- Des PR revues avant intégration
+- Vérifier si un produit est déjà dans le panier avant de l’ajouter
+- Afficher un message de confirmation après chaque action
+- Utiliser des Toasts ou modals pour les retours utilisateurs
+- Gérer les erreurs API proprement (ex: stock insuffisant)
+
+---
+
+Rédigé pour la branche : `feature/panier`
+
 
