@@ -1,82 +1,73 @@
 
-# 🛍️ Projet – Gestion de Produits en Ligne (React + FastAPI)
+# 🛡️ Interface d'administration – Gestion des produits et utilisateurs
 
-## 📌 Présentation
-Ce projet consiste à développer une application web de gestion de produits avec :
-- Un système d'authentification (login/logout)
-- Un panier d'achat
-- Une interface d'administration pour gérer les produits et les utilisateurs
-
----
-
-## 👥 Répartition des tâches par collaborateur
-
-| Collaborateur       | Tâche                          | Description                                                                                  | Branche de travail        |
-|---------------------|--------------------------------|----------------------------------------------------------------------------------------------|---------------------------|
-| Alejandro Zambrano  | Frontend (React)               | Création des composants React, connexion API, affichage des produits                         | `feature/frontend`        |
-| Alejandro Zambrano  | Gestion du panier              | Interface utilisateur pour le panier, ajout/suppression de produits                          | `feature/panier`          |
-| Alejandro Zambrano  | UML & Documentation            | Diagrammes de classe, séquence, cas d'utilisation, structure du projet                       | `main` (documentation)    |
-| Yaakoub El Mouttaqui| Backend (FastAPI)              | API REST, endpoints `/produits`, `/panier`, `/login`, connexion à la base de données         | `feature/backend`         |
-| Yaakoub El Mouttaqui| Authentification & JWT         | Login/logout, génération et vérification des tokens JWT                                      | `feature/backend`         |
-| Yaakoub El Mouttaqui| Interface d'administration     | Ajout, modification, suppression des produits et gestion des utilisateurs                    | `feature/admin`           |
+## 🎯 Objectif
+Développement de la partie "administration" de l’application, permettant à un administrateur de :
+- Gérer les produits (ajouter, modifier, supprimer)
+- Gérer les comptes utilisateurs
+- Accéder à une interface sécurisée réservée aux admins
 
 ---
 
-## 🌿 Branches Git
-
-| Branche              | Description                           |
-|----------------------|---------------------------------------|
-| `main`               | Version stable du projet              |
-| `feature/frontend`   | Interface React (Alejandro)           |
-| `feature/backend`    | API FastAPI (Yaakoub El Mouttaqui)    |
-| `feature/panier`     | Gestion du panier (Alejandro)         |
-| `feature/admin`      | Interface admin (Yaakoub El Mouttaqui)|
+## 📌 Technologies utilisées
+- FastAPI (backend)
+- JWT pour sécuriser l'accès
+- React (interface admin dans `AdminPanel.jsx`)
+- SQLite ou PostgreSQL
+- Axios pour appels API côté frontend
 
 ---
 
-## 🚀 Procédure de travail Git recommandée
+## 👤 Accès réservé aux administrateurs
 
-### 🔁 Avant de commencer :
-```bash
-git checkout main
-git pull origin main
-```
-
-### 🌿 Créer une branche :
-```bash
-git checkout -b feature/nom-de-ta-tâche
-```
-
-### 🛠️ Travailler et pousser :
-```bash
-git add .
-git commit -m "Ajout de la fonctionnalité X"
-git push origin feature/nom-de-ta-tâche
-```
-
-### ✅ Pull Request :
-- Créer une Pull Request **vers `main`**
-- Attendre la validation avant de faire le merge
+- Lors de l’authentification, un **token JWT** est généré avec le rôle de l'utilisateur (`admin` ou `client`)
+- Toutes les routes d'administration sont protégées et ne sont accessibles que si :
+  - Le token est valide
+  - Le rôle est `admin`
 
 ---
 
-## 📁 Structure du projet
+## 🛠️ Tâches à réaliser dans cette branche `feature/admin`
+
+| Tâche                              | Description                                                                 |
+|------------------------------------|-----------------------------------------------------------------------------|
+| Vérification du rôle dans JWT      | Décoder le token JWT et vérifier `role: admin` avant d'autoriser l'accès    |
+| Interface `AdminPanel.jsx`         | Affichage conditionnel pour l’admin dans l'interface React                  |
+| Gestion des produits (API)         | Ajouter / Modifier / Supprimer produits depuis `/produits`                 |
+| Gestion des utilisateurs (API)     | Liste des utilisateurs, suppression (endpoint `/utilisateurs`)              |
+| Composant de liste (frontend)      | Afficher les utilisateurs sous forme de tableau dans l’interface admin     |
+
+---
+
+## 🔐 Sécurité attendue
+
+- Toute route API d’administration doit être protégée par `Depends(get_current_admin)`
+- Le frontend ne doit afficher le panneau admin que si `role === 'admin'`
+- Les erreurs doivent être claires : 401 Unauthorized ou 403 Forbidden
+
+---
+
+## 📂 Exemple d’arborescence pour admin
 
 ```
-gestion_produits_React.js/
-├── frontend/          # React App
-├── backend/           # API FastAPI
-├── diagrammes/        # Diagrammes UML
-├── README.md
-└── .gitignore
+frontend/
+├── pages/
+│   ├── AdminPanel.jsx           # Interface conditionnelle pour admin
+│   └── UsersList.jsx            # Liste des utilisateurs
+backend/
+├── routes/
+│   └── admin.py (ou utilisateurs.py)
 ```
 
 ---
 
-## 🔒 Bonnes pratiques
+## ✅ Bonnes pratiques
 
-- Ne jamais travailler directement sur `main`
-- Une branche par fonctionnalité
-- Des commits clairs
-- Des PR revues avant intégration
+- Ne jamais exposer de données sensibles dans les réponses
+- Limiter les droits aux utilisateurs classiques
+- Garder une séparation claire entre logique admin et logique utilisateur
+
+---
+
+Rédigé pour la branche : `feature/admin`
 
