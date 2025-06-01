@@ -179,4 +179,3 @@ gestion_produits_React.js/
 - Une branche par fonctionnalité
 - Des commits clairs
 - Des PR revues avant intégration
-
