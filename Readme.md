@@ -63,11 +63,8 @@ backend/
 
 ## ✅ Bonnes pratiques
 
-- Ne jamais exposer de données sensibles dans les réponses
-- Limiter les droits aux utilisateurs classiques
-- Garder une séparation claire entre logique admin et logique utilisateur
-
----
-
-Rédigé pour la branche : `feature/admin`
+- Ne jamais travailler directement sur `main`
+- Une branche par fonctionnalité
+- Des commits clairs
+- Des PR revues avant intégration
 
