@@ -28,9 +28,9 @@ gestion_produits_React.js/
 | Alejandro Zambrano  | Frontend (React)               | Création des composants React, connexion API, affichage des produits                         | `feature/frontend`        |
 | Alejandro Zambrano  | Gestion du panier              | Interface utilisateur pour le panier, ajout/suppression de produits                          | `feature/panier`          |
 | Alejandro Zambrano  | UML & Documentation            | Diagrammes de classe, séquence, cas d'utilisation, structure du projet                       | `main` (documentation)    |
-| Collaborateur       | Backend (FastAPI)              | API REST, endpoints `/produits`, `/panier`, `/login`, connexion à la base de données         | `feature/backend`         |
-| Collaborateur       | Authentification & JWT         | Login/logout, génération et vérification des tokens JWT                                      | `feature/backend`         |
-| Collaborateur       | Interface d'administration     | Ajout, modification, suppression des produits et gestion des utilisateurs                    | `feature/admin`           |
+|Yaakoub El Mouttaquii| Backend (FastAPI)              | API REST, endpoints `/produits`, `/panier`, `/login`, connexion à la base de données         | `feature/backend`         |
+|Yaakoub El Mouttaquii| Authentification & JWT         | Login/logout, génération et vérification des tokens JWT                                      | `feature/backend`         |
+|Yaakoub El Mouttaquii| Interface d'administration     | Ajout, modification, suppression des produits et gestion des utilisateurs                    | `feature/admin`           |
 
 ```
 
